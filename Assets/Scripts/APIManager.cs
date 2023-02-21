@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -20,8 +19,8 @@ public class APIManager : MonoBehaviour
     {
         _currentDate = System.DateTime.Now.ToString("yyyy-MM-dd");
         _dateAfter4Days = System.DateTime.Now.AddDays(4).ToString("yyyy-MM-dd");
-        _latitude = 43.70f;
-        _longitude = 7.27f;
+        // _latitude = 43.70f;
+        // _longitude = 7.27f;
         hasData = false;
         _nfi.NumberDecimalSeparator = ".";
     }
@@ -34,7 +33,6 @@ public class APIManager : MonoBehaviour
     IEnumerator GetWeekData(float latitude, float longitude, string startDate, string endDate)
     {
         hasData = false;
-        //Replace <API_URL> with the URL of the API you want to call
         using (UnityWebRequest www = UnityWebRequest.Get(
                    $"https://api.open-meteo.com/v1/meteofrance?latitude={latitude.ToString(_nfi)}&longitude={longitude.ToString(_nfi)}&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&start_date={startDate}&end_date={endDate}&timezone=Europe%2FParis"))
         {
@@ -53,11 +51,6 @@ public class APIManager : MonoBehaviour
                 hasData = true;
             }
         }
-        // print(latitude);
-        // print(longitude);
-        print($"https://api.open-meteo.com/v1/meteofrance?latitude={latitude.ToString(_nfi)}&longitude={longitude.ToString(_nfi)}&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&start_date={startDate}&end_date={endDate}&timezone=Europe%2FParis");
-
-        yield break;
     }
 
 
@@ -67,19 +60,19 @@ public class APIManager : MonoBehaviour
     {
         GetWeekWeather(_latitude, _longitude, _currentDate, _dateAfter4Days);
     }
-
-    private void Update()
-    {
-        if (hasData)
-        {
-            foreach (var theDate in _weatherAPIResult.daily.time)
-            {
-                print(theDate);
-            }
-
-            hasData = false;
-        }
-    }
+    
+    // private void Update()
+    // {
+    //     if (hasData)
+    //     {
+    //         foreach (var theDate in _weatherAPIResult.daily.time)
+    //         {
+    //             print(theDate);
+    //         }
+    //
+    //         hasData = false;
+    //     }
+    // }
 
     #endregion
 }
@@ -98,3 +91,17 @@ public class Daily
     public string[] sunrise { get; set; }
     public string[] sunset { get; set; }
 }
+
+public class CityData
+{
+    public City[] cities { get; set; }
+}
+
+public class City
+{
+    public string name { get; set; }
+    public double latitude { get; set; }
+    public double longitude { get; set; }
+    public string country { get; set; }
+}
+
