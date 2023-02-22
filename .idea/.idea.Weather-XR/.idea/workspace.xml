@@ -4,6 +4,7 @@
     <list default="true" id="b4c7a91f-b611-420d-8148-4e32f6b60d9c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Weather-XR/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Weather-XR/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/APIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/APIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +90,8 @@
       <workItem from="1676898032597" duration="6150000" />
       <workItem from="1676967852573" duration="25000" />
       <workItem from="1676967889567" duration="12974000" />
+      <workItem from="1677055658095" duration="66000" />
+      <workItem from="1677056206169" duration="3885000" />
     </task>
     <servers />
   </component>

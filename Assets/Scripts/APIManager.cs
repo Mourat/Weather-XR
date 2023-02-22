@@ -6,33 +6,40 @@ using Newtonsoft.Json;
 
 public class APIManager : MonoBehaviour
 {
-    private string _currentDate;
-    private string _dateAfter4Days;
-    private float _latitude;
-    private float _longitude;
+    private string _startDate;
+    private string _endDate;
+    // private float _latitude;
+    // private float _longitude;
     private string _jsonResult;
-    private WeatherData _weatherAPIResult;
-    public bool hasData;
+    public WeatherData weatherAPIResult;
+    public CitiesData citiesAPIResult;
+    public bool hasWeatherData;
+    public bool hasCitiesData;
     private NumberFormatInfo _nfi = new NumberFormatInfo();
 
     private void Awake()
     {
-        _currentDate = System.DateTime.Now.ToString("yyyy-MM-dd");
-        _dateAfter4Days = System.DateTime.Now.AddDays(4).ToString("yyyy-MM-dd");
+        _startDate = System.DateTime.Now.ToString("yyyy-MM-dd");
+        _endDate = System.DateTime.Now.AddDays(4).ToString("yyyy-MM-dd");
         // _latitude = 43.70f;
         // _longitude = 7.27f;
-        hasData = false;
+        hasWeatherData = false;
         _nfi.NumberDecimalSeparator = ".";
     }
 
-    public void GetWeekWeather(float latitude, float longitude, string startDate, string endDate)
+    public void GetWeekWeather(float latitude, float longitude)
     {
-        StartCoroutine(GetWeekData(latitude, longitude, startDate, endDate));
+        StartCoroutine(GetWeekData(latitude, longitude, _startDate, _endDate));
+    }
+    
+    public void GetCities(string queryName)
+    {
+        StartCoroutine(GetCitiesData(queryName));
     }
 
     IEnumerator GetWeekData(float latitude, float longitude, string startDate, string endDate)
     {
-        hasData = false;
+        hasWeatherData = false;
         using (UnityWebRequest www = UnityWebRequest.Get(
                    $"https://api.open-meteo.com/v1/meteofrance?latitude={latitude.ToString(_nfi)}&longitude={longitude.ToString(_nfi)}&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&start_date={startDate}&end_date={endDate}&timezone=Europe%2FParis"))
         {
@@ -47,33 +54,72 @@ public class APIManager : MonoBehaviour
                 // Get the response data as a string
                 _jsonResult = www.downloadHandler.text;
                 // Do something with the response data
-                _weatherAPIResult = JsonConvert.DeserializeObject<WeatherData>(_jsonResult);
-                hasData = true;
+                weatherAPIResult = JsonConvert.DeserializeObject<WeatherData>(_jsonResult);
+                hasWeatherData = true;
+            }
+        }
+    }
+    
+    IEnumerator GetCitiesData(string queryName)
+    {
+        hasCitiesData = false;
+        using (UnityWebRequest www = UnityWebRequest.Get(
+                   $"https://geocoding-api.open-meteo.com/v1/search?count=5&name={queryName}"))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                print(www.error);
+            }
+            else
+            {
+                // Get the response data as a string
+                _jsonResult = www.downloadHandler.text;
+                // Do something with the response data
+                citiesAPIResult = JsonConvert.DeserializeObject<CitiesData>(_jsonResult);
+                hasCitiesData = true;
             }
         }
     }
 
 
     #region Remove this code
-
-    private void Start()
-    {
-        GetWeekWeather(_latitude, _longitude, _currentDate, _dateAfter4Days);
-    }
-    
+    // private void Start()
+    // {
+    //     GetWeekWeather(_latitude, _longitude);
+    // }
+    //
     // private void Update()
     // {
-    //     if (hasData)
+    //     if (hasWeatherData)
     //     {
     //         foreach (var theDate in _weatherAPIResult.daily.time)
     //         {
     //             print(theDate);
     //         }
     //
-    //         hasData = false;
+    //         hasWeatherData = false;
     //     }
     // }
-
+    
+    // private void Start()
+    // {
+    //     GetCities("nice");
+    // }
+    //
+    // private void Update()
+    // {
+    //     if (hasCitiesData)
+    //     {
+    //         foreach (var city in citiesAPIResult.results)
+    //         {
+    //             print($"City: {city.name}, coordinates: {city.latitude}-{city.longitude}, country: {city.country}");
+    //         }
+    //
+    //         hasCitiesData = false;
+    //     }
+    // }
     #endregion
 }
 
@@ -92,16 +138,16 @@ public class Daily
     public string[] sunset { get; set; }
 }
 
-public class CityData
+public class CitiesData
 {
-    public City[] cities { get; set; }
+    public City[] results { get; set; }
 }
 
 public class City
 {
     public string name { get; set; }
-    public double latitude { get; set; }
-    public double longitude { get; set; }
+    public float latitude { get; set; }
+    public float longitude { get; set; }
     public string country { get; set; }
 }
 
