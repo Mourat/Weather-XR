@@ -24,6 +24,7 @@ public class APIManager : MonoBehaviour
         // _latitude = 43.70f;
         // _longitude = 7.27f;
         hasWeatherData = false;
+        hasCitiesData = false;
         _nfi.NumberDecimalSeparator = ".";
     }
 
@@ -114,7 +115,7 @@ public class APIManager : MonoBehaviour
     //     {
     //         foreach (var city in citiesAPIResult.results)
     //         {
-    //             print($"City: {city.name}, coordinates: {city.latitude}-{city.longitude}, country: {city.country}");
+    //             print($"{city.name} / {city.country}");
     //         }
     //
     //         hasCitiesData = false;
