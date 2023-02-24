@@ -1126,8 +1126,16 @@ MonoBehaviour:
   date: {fileID: 2120556792675035091}
   rain: {fileID: 3663947584291941401}
   sun: {fileID: 4122503297126318386}
-  icons: []
-  minTemp: 55
+  icons:
+  - {fileID: 21300000, guid: 8c95d08c39c39164aa016636fc7cb306, type: 3}
+  - {fileID: 21300000, guid: 5fc30359d69be7345be1a50738e8f965, type: 3}
+  - {fileID: 21300000, guid: d528a9143b42ab446bac1777fe0c7332, type: 3}
+  - {fileID: 21300000, guid: f3b080fe4c4f0d3428e0a8817084adb9, type: 3}
+  - {fileID: 21300000, guid: af302adbc83b47746bb971c57077f6cf, type: 3}
+  - {fileID: 21300000, guid: 112214c8f9ef9b84083563258d9d830c, type: 3}
+  - {fileID: 21300000, guid: 39257c86e3b0c45438f855855fd3328a, type: 3}
+  weatherIcon: {fileID: 7199853921941069602}
+  minTemp: 0
 --- !u!1 &8101652157229273062
 GameObject:
   m_ObjectHideFlags: 0
