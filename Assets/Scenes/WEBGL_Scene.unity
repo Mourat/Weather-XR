@@ -1251,7 +1251,7 @@ MonoBehaviour:
   rain: {fileID: 0}
   sun: {fileID: 0}
   icons: []
-  minTemp: 
+  weatherIcon: {fileID: 0}
 --- !u!1 &423320137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,7 +2405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1022935789
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3299,6 +3299,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1243989842}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1255573522 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8011279683883993214, guid: f5615771e66fbca49a5a7c1389885dfc,
+    type: 3}
+  m_PrefabInstance: {fileID: 884142933}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cb9d10782e9134e8f99d5d343a4087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1255577479
 GameObject:
   m_ObjectHideFlags: 0
@@ -5348,7 +5360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1908363539
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5970,9 +5982,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rainny: {fileID: 2100000, guid: b245cf069b1d51e4a85861491bb5186d, type: 2}
   sunny: {fileID: 2100000, guid: 7fe2500f1465ef04598a1a24e6eb0425, type: 2}
-  cloody: {fileID: 2100000, guid: fd3c445e27e5c6c408ee02a3f008401f, type: 2}
+  cloudy: {fileID: 2100000, guid: fd3c445e27e5c6c408ee02a3f008401f, type: 2}
   storm: {fileID: 2100000, guid: 6f4f7345e599aa94281e88efd8647039, type: 2}
   snow: {fileID: 2100000, guid: e49779ec96fc70b4c8b327ccb7d83a75, type: 2}
+  displayWeather: {fileID: 1255573522}
 --- !u!4 &543450652864164868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4071350181433446688, guid: df9c2930c9028e04faaa18d672833f3a,

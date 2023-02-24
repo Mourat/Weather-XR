@@ -7,36 +7,62 @@ public class EditSky : MonoBehaviour
 
     public Material rainny;
     public Material sunny;
-    public Material cloody;
+    public Material cloudy;
     public Material storm;
     public Material snow;
 
-   
+    public DisplayWeather displayWeather;
 
     private void updateSky(Material mat)
     {
         RenderSettings.skybox = mat;
     }
 
-    public void setSkyRain()
+
+    public void setSkyByWeatherCode(int code)
     {
-        updateSky(rainny);
+       string iconName = displayWeather.getIconNameByCode(code);
+
+        switch (iconName)
+        {
+            case "Sun":
+                updateSky(sunny);
+                break;
+
+            case "Rain":
+                updateSky(rainny);
+                break;
+
+            case "Cloud":
+                updateSky(cloudy);
+                break;
+
+            case "Thunder":
+                updateSky(storm);
+                break;
+
+            case "Snow":
+                updateSky(snow);
+                break;
+
+            default:
+                updateSky(sunny);
+                break;
+        }
+
     }
 
-    public void setSkySunny()
+    /*
+     *    TESTS
+     * */
+
+    /*
+
+    private void Start()
     {
-        updateSky(sunny);
+        setSkyByWeatherCode(45);
     }
-    public void setSkyCloody()
-    {
-        updateSky(cloody);
-    }
-    public void setSkyStrom()
-    {
-        updateSky(storm);
-    }
-    public void setSkySnow()
-    {
-        updateSky(snow);
-    }
+
+    */
+
 }
