@@ -7,16 +7,13 @@ using static System.Math;
 public class GlobeControler : MonoBehaviour
 {
 
-   // [SerializeField] ApiRequest apiRequest;
+    [SerializeField] APIManager apiManager;
     bool isClicked;
     Vector3 clickPos;
     Vector2 longLat;
 
 
-    void Start()
-    {
 
-    }
     void OnMouseDown()
     {
         isClicked = Input.GetMouseButtonDown(0);
@@ -31,8 +28,11 @@ public class GlobeControler : MonoBehaviour
             Vector3 offset = rt.collider.transform.InverseTransformPoint(rt.point);
             longLat = ToSpherical(offset);
 
-           // TODO
-           // apiRequest.GetSearchCoord(longLat);
+            float latitude = longLat.y;
+            float longitude = longLat.x;
+
+            // Get data
+            apiManager.GetWeekWeather(latitude, longitude);
         }
     }
 
