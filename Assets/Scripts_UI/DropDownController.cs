@@ -43,18 +43,33 @@ namespace Scripts_UI
         public void onValueChanged()
         {
 
-            Debug.Log("DropDownController > onValueChanged : OK");
+            float latitude = 0;
+            float longitude = 0;
 
-            print(System.String.Format($"Latitude: {_apiManager.citiesAPIResult.results[_dropdown.value].latitude}"));
-            print(System.String.Format($"Longitude: {_apiManager.citiesAPIResult.results[_dropdown.value].longitude}"));
+            Debug.Log("DropDownController > onValueChanged : Yessss");
+
+            latitude = _apiManager.citiesAPIResult.results[_dropdown.value].latitude;
+            longitude = _apiManager.citiesAPIResult.results[_dropdown.value].longitude;
+
+            if (longitude == 0  )
+            {
+                return;
+            }
+
+            print(System.String.Format($"Latitude: {latitude}"));
+            print(System.String.Format($"Longitude: {longitude}"));
 
             City city = _apiManager.citiesAPIResult.results[_dropdown.value];
 
+            // Display city informations
             displayInformations.FillInfos(city);
+
+            // Get weather informations
+            _apiManager.GetWeekWeather(latitude, longitude);
 
            // int weatherCode = 0;
 
-           // editSky.setSkyByWeatherCode(weatherCode);
+            // editSky.setSkyByWeatherCode(weatherCode);
 
 
         }

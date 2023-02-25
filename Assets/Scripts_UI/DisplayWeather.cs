@@ -26,7 +26,7 @@ public class WeatherCode
 public class DisplayWeather : MonoBehaviour
 {
 
-    [SerializeField] TextMeshProUGUI tempMin, tempMax, weatherCode, date, rain, sun;
+    [SerializeField] TextMeshProUGUI tempMin, tempMax, weatherCode, date, sunset, sunrise;
     [SerializeField] Sprite[] icons;
     [SerializeField] Image weatherIcon;
 
@@ -36,6 +36,7 @@ public class DisplayWeather : MonoBehaviour
     {
         buidWeatherCodesList();
     }
+
 
     public void setTempMin(string text)
     {
@@ -87,14 +88,14 @@ public class DisplayWeather : MonoBehaviour
         date.text = text;
     }
 
-    public void setRainPercent(string text)
+    public void setSunrise(string text)
     {
-        rain.text = text;
+        sunrise.text = text;
     }
 
-    public void setUV(string text)
+    public void setSunset(string text)
     {
-        sun.text = text;
+        sunset.text = text;
     }
 
 

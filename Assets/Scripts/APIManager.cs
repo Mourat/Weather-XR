@@ -32,11 +32,6 @@ public class APIManager : MonoBehaviour
     {
         StartCoroutine(GetWeekData(latitude, longitude, _startDate, _endDate));
     }
-
-    public void GetWeekWeatherByCity()
-    {
-
-    }
     
     public void GetCities(string queryName)
     {
@@ -67,6 +62,7 @@ public class APIManager : MonoBehaviour
                 hasWeatherData = true;
 
                 Debug.Log("APIManager > GetWeekData > hasWeatherData : " + hasWeatherData);
+
             }
         }
     }
@@ -163,7 +159,12 @@ public class Daily
     public float[] temperature_2m_min { get; set; }
     public string[] sunrise { get; set; }
     public string[] sunset { get; set; }
+    public float[] uv_index_max { get; set; }
+    public float[] precipitation_probability_max { get; set; }
 }
+
+/*
+https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=weathercode,temperature_2m_max,temperature_2m_min,uv_index_max,precipitation_probability_max&timezone=auto * */
 
 public class CitiesData
 {

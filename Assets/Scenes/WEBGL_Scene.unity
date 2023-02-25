@@ -1248,8 +1248,8 @@ MonoBehaviour:
   tempMax: {fileID: 0}
   weatherCode: {fileID: 0}
   date: {fileID: 0}
-  rain: {fileID: 0}
-  sun: {fileID: 0}
+  sunset: {fileID: 0}
+  sunrise: {fileID: 0}
   icons: []
   weatherIcon: {fileID: 0}
 --- !u!1 &423320137
@@ -2375,10 +2375,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7170337350275680112, guid: f5615771e66fbca49a5a7c1389885dfc,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8074169564220904183, guid: f5615771e66fbca49a5a7c1389885dfc,
         type: 3}
       propertyPath: m_Name
       value: Day1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269743187566108322, guid: f5615771e66fbca49a5a7c1389885dfc,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5615771e66fbca49a5a7c1389885dfc, type: 3}
@@ -3542,6 +3552,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1266763045}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1294317666 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8011279683883993214, guid: f5615771e66fbca49a5a7c1389885dfc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1243989842}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cb9d10782e9134e8f99d5d343a4087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1308974487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4055,6 +4077,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1355391305}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1355391307 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8011279683883993214, guid: f5615771e66fbca49a5a7c1389885dfc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1355391305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cb9d10782e9134e8f99d5d343a4087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1387542602
 GameObject:
   m_ObjectHideFlags: 0
@@ -5184,7 +5218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a74ae1452fb9245abcd9c7d8de1c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  editSky: {fileID: 2132789012}
+  editSky: {fileID: 0}
   displayInformations: {fileID: 1340742427}
 --- !u!1001 &1698424345
 PrefabInstance:
@@ -5311,6 +5345,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1698424345}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1698424347 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8011279683883993214, guid: f5615771e66fbca49a5a7c1389885dfc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1698424345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cb9d10782e9134e8f99d5d343a4087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1859238608
 GameObject:
   m_ObjectHideFlags: 0
@@ -5368,6 +5414,7 @@ GameObject:
   - component: {fileID: 1908363539}
   - component: {fileID: 1908363541}
   - component: {fileID: 1908363540}
+  - component: {fileID: 1908363542}
   m_Layer: 0
   m_Name: Meteo5Days
   m_TagString: Untagged
@@ -5439,6 +5486,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908363538}
   m_CullTransparentMesh: 1
+--- !u!114 &1908363542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908363538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a759a11ca17f6b34c81512d7f2c8e863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apiManager: {fileID: 1859238609}
+  weekInfos:
+  - {fileID: 1255573522}
+  - {fileID: 1355391307}
+  - {fileID: 1698424347}
+  - {fileID: 2025333684}
+  - {fileID: 1294317666}
+  editSky: {fileID: 2132789012}
 --- !u!1 &1918476648
 GameObject:
   m_ObjectHideFlags: 0
@@ -5772,6 +5839,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2025333684 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8011279683883993214, guid: f5615771e66fbca49a5a7c1389885dfc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1266763045}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cb9d10782e9134e8f99d5d343a4087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2110518294
 GameObject:
   m_ObjectHideFlags: 0
