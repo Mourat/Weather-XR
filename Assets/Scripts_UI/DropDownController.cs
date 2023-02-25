@@ -16,6 +16,9 @@ namespace Scripts_UI
         // [SerializeField] private Label label;
         // private Button button;
 
+        [SerializeField] EditSky editSky;
+        [SerializeField] DisplayInformations displayInformations;
+
         private void Awake()
         {
             _dropdown = transform.GetComponent<TMP_Dropdown>();
@@ -37,10 +40,23 @@ namespace Scripts_UI
             // button.onClick.Invoke();
         }
 
-        private void onValueChanged()
+        public void onValueChanged()
         {
+
+            Debug.Log("DropDownController > onValueChanged : OK");
+
             print(System.String.Format($"Latitude: {_apiManager.citiesAPIResult.results[_dropdown.value].latitude}"));
             print(System.String.Format($"Longitude: {_apiManager.citiesAPIResult.results[_dropdown.value].longitude}"));
+
+            City city = _apiManager.citiesAPIResult.results[_dropdown.value];
+
+            displayInformations.FillInfos(city);
+
+           // int weatherCode = 0;
+
+           // editSky.setSkyByWeatherCode(weatherCode);
+
+
         }
     }
 }

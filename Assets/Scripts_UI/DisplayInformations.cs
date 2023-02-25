@@ -9,6 +9,17 @@ public class DisplayInformations : MonoBehaviour
     [SerializeField] TextMeshProUGUI city, country, timeZone, population, latitude, longitude, elevation;
 
 
+    public void FillInfos(City city)
+    {
+        setCity(city.name);
+        setCountry(city.country);
+        setLatitude(city.latitude + "");
+        setLongitude(city.longitude + "");
+        setElevation(city.elevation + "");
+        setPopulation(city.population + "");
+        setTimeZone(city.timezone);
+    }
+
     public void setCity(string text)
     {
         city.text = text;

@@ -32,6 +32,11 @@ public class APIManager : MonoBehaviour
     {
         StartCoroutine(GetWeekData(latitude, longitude, _startDate, _endDate));
     }
+
+    public void GetWeekWeatherByCity()
+    {
+
+    }
     
     public void GetCities(string queryName)
     {
@@ -54,9 +59,14 @@ public class APIManager : MonoBehaviour
             {
                 // Get the response data as a string
                 _jsonResult = www.downloadHandler.text;
+
+                Debug.Log("APIManager > GetWeekData > _jsonResult : " + _jsonResult);
+
                 // Do something with the response data
                 weatherAPIResult = JsonConvert.DeserializeObject<WeatherData>(_jsonResult);
                 hasWeatherData = true;
+
+                Debug.Log("APIManager > GetWeekData > hasWeatherData : " + hasWeatherData);
             }
         }
     }
@@ -77,15 +87,21 @@ public class APIManager : MonoBehaviour
             {
                 // Get the response data as a string
                 _jsonResult = www.downloadHandler.text;
+                Debug.Log("APIManager > GetCitiesData > _jsonResult : " + _jsonResult);
+
                 // Do something with the response data
                 citiesAPIResult = JsonConvert.DeserializeObject<CitiesData>(_jsonResult);
                 hasCitiesData = true;
+                Debug.Log("APIManager > GetCitiesData > hasCitiesData : " + hasCitiesData);
             }
         }
     }
 
+    /*
+ *  =====   TEST  =======
+ */
 
-    #region Remove this code
+    
     // private void Start()
     // {
     //     GetWeekWeather(_latitude, _longitude);
@@ -103,25 +119,35 @@ public class APIManager : MonoBehaviour
     //         hasWeatherData = false;
     //     }
     // }
+
+
+    /*    
+     private void Start()
+     {
+        GetCities("nice");
+        GetWeekWeather(43.70f, 7.27f);
+    }
+
+    private void Update()
+    {
+        if (hasCitiesData)
+         {
+             foreach (var city in citiesAPIResult.results)
+             {
+                 print($"{city.name} / {city.country}");
+             }
+
+            foreach (var theweather in weatherAPIResult.daily.time)
+            {
+                print(theweather);
+            }
+
+             hasCitiesData = false;
+        }
+    }
     
-    // private void Start()
-    // {
-    //     GetCities("nice");
-    // }
-    //
-    // private void Update()
-    // {
-    //     if (hasCitiesData)
-    //     {
-    //         foreach (var city in citiesAPIResult.results)
-    //         {
-    //             print($"{city.name} / {city.country}");
-    //         }
-    //
-    //         hasCitiesData = false;
-    //     }
-    // }
-    #endregion
+
+    */
 }
 
 public class WeatherData
@@ -149,6 +175,8 @@ public class City
     public string name { get; set; }
     public float latitude { get; set; }
     public float longitude { get; set; }
+    public float elevation { get; set; }
     public string country { get; set; }
+    public int population { get; set; }
+    public string timezone { get; set; }
 }
-
