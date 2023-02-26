@@ -61,8 +61,11 @@ namespace Scripts_UI
             //     _dropdown.ClearOptions();
             //     _dropdown.AddOptions(_cityNames);
             // }
+        }
 
-
+        public void Clean()
+        {
+            _cityName.text = "";
         }
 
         // private void Start()

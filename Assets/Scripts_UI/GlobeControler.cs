@@ -1,3 +1,4 @@
+using Scripts_UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,12 @@ public class GlobeControler : MonoBehaviour
 {
 
     [SerializeField] APIManager apiManager;
-    bool isClicked;
-    Vector3 clickPos;
-    Vector2 longLat;
+    [SerializeField] DisplayInformations displayInformations;
+    [SerializeField] SearchFormManager searchFormManager;
 
+    private bool isClicked;
+    private Vector3 clickPos;
+    private Vector2 longLat;
 
 
     void OnMouseDown()
@@ -31,8 +34,18 @@ public class GlobeControler : MonoBehaviour
             float latitude = longLat.y;
             float longitude = longLat.x;
 
-            // Get data
+            // Get weather data
             apiManager.GetWeekWeather(latitude, longitude);
+
+            City city = new City();
+            city.latitude = latitude;
+            city.longitude = longitude;
+
+            // Display city informations
+            displayInformations.FillInfos(city);
+
+            // clean search form
+            searchFormManager.Clean();
         }
     }
 

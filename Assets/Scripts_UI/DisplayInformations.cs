@@ -37,6 +37,10 @@ public class DisplayInformations : MonoBehaviour
 
     public void setPopulation(string text)
     {
+        if (text == "0")
+        {
+            text = "";
+        }
         population.text = text;
     }
 
@@ -52,6 +56,10 @@ public class DisplayInformations : MonoBehaviour
 
     public void setElevation(string text)
     {
+        if (text == "0")
+        {
+            text = "";
+        }
         elevation.text = text;
     }
 

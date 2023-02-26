@@ -5292,6 +5292,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apiManager: {fileID: 1859238609}
+  displayInformations: {fileID: 1340742427}
+  searchFormManager: {fileID: 423320141}
 --- !u!1 &1509138271
 GameObject:
   m_ObjectHideFlags: 0
@@ -7364,6 +7366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Nom
+      objectReference: {fileID: 0}
+    - target: {fileID: 1606333803789722171, guid: 64fbc3f8cca1b2f4e8d22a85265d7e27,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 7893129121312614941, guid: 64fbc3f8cca1b2f4e8d22a85265d7e27,
         type: 3}

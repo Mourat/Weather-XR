@@ -163,20 +163,4 @@ public class EarthRotation : MonoBehaviour
 
     }
 
-
-    private void OnMouseDown()
-    {
-        Debug.Log("Mouse Down Earth");
-    }
-
-    public void enableRotation()
-    {
-        Debug.Log("Ctrl Down ");
-    }
-
-    public void disableRotation()
-    {
-        Debug.Log("Ctrl Up");
-    }
-
 }
