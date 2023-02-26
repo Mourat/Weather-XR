@@ -9,6 +9,9 @@ public class MeteoController : MonoBehaviour
     [SerializeField] DisplayWeather[] weekInfos;  // fields
     [SerializeField] EditSky editSky;
 
+    [SerializeField] GameObject citiesForm;
+    [SerializeField] GameObject citiesInfos;
+
     WeatherData weatherData = null;
 
 
@@ -16,6 +19,12 @@ public class MeteoController : MonoBehaviour
     {
         if (apiManager.hasWeatherData)
         {
+            // Hide cities form
+            citiesForm.transform.localScale = new Vector3(0, 0, 0);
+
+            // Display curent city
+            citiesInfos.transform.localScale = new Vector3(1, 1, 1);
+
             Debug.Log("MeteoController > Update >  hasWeatherData : true ");
             weatherData = apiManager.weatherAPIResult;
             FillDays(weatherData);
@@ -61,6 +70,9 @@ public class MeteoController : MonoBehaviour
             weekInfos[i].setDate(time);
 
         }
+
+        apiManager.hasWeatherData = false;
+
     }
 
     /*

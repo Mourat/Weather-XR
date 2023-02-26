@@ -10,7 +10,7 @@ namespace Scripts_UI
         private APIManager _apiManager;
         private CitiesData _citiesAPIResult;
 
-        private DropDownController _dropDownController;
+        //private DropDownController _dropDownController;
         // private TMP_Dropdown _dropdown;
         private List<string> _cityNames;
 
@@ -19,7 +19,7 @@ namespace Scripts_UI
         {
             // _apiManager = GetComponent<APIManager>();
             _apiManager = FindObjectOfType<APIManager>();
-            _dropDownController = FindObjectOfType<DropDownController>();
+           // _dropDownController = FindObjectOfType<DropDownController>();
             _cityNames = new List<string>();
             // _dropdown = GetComponent<TMP_Dropdown>();
         }
@@ -44,6 +44,8 @@ namespace Scripts_UI
 
         private void FindCity()
         {
+            _apiManager.hasCitiesData = false;
+
             _apiManager.GetCities(_cityName.text);
             // _apiManager.GetCities("nice");
 
@@ -69,7 +71,10 @@ namespace Scripts_UI
         //     
         // }
 
-    private void Update()
+
+        /*
+
+        private void Update()
         {
             if (_apiManager.hasCitiesData)
             {
@@ -82,6 +87,8 @@ namespace Scripts_UI
                 _dropDownController.FillDropdown(_cityNames);
                 _apiManager.hasCitiesData = false;
             }
-        }
+        }*/
     }
+
+
 }

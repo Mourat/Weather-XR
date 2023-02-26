@@ -13,8 +13,9 @@ public class CitiesButton : MonoBehaviour
         
         if (city != null)
         {
-           // Debug.Log("CitiesButton > city.latitude : " + city.latitude);
+            // Debug.Log("CitiesButton > city.latitude : " + city.latitude);
 
+            // Load weather informations
             apiManager.GetWeekWeather(city.latitude, city.longitude);
         }
     }
