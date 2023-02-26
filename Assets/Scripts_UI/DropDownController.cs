@@ -46,15 +46,10 @@ namespace Scripts_UI
             float latitude = 0;
             float longitude = 0;
 
-            Debug.Log("DropDownController > onValueChanged : Yessss");
+            //Debug.Log("DropDownController > onValueChanged : Yessss");
 
             latitude = _apiManager.citiesAPIResult.results[_dropdown.value].latitude;
             longitude = _apiManager.citiesAPIResult.results[_dropdown.value].longitude;
-
-            if (longitude == 0  )
-            {
-                return;
-            }
 
             print(System.String.Format($"Latitude: {latitude}"));
             print(System.String.Format($"Longitude: {longitude}"));

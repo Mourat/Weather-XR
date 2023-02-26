@@ -17,6 +17,8 @@ public class MeteoController : MonoBehaviour
 
     private void Update()
     {
+
+        //When week loaded display 5 days
         if (apiManager.hasWeatherData)
         {
             // Hide cities form
@@ -71,23 +73,21 @@ public class MeteoController : MonoBehaviour
 
         }
 
+        // Prevent loop display
         apiManager.hasWeatherData = false;
 
     }
 
     /*
+     *  ===========  Format ==================
      * 
-,"daily":{
+    "daily":{
     "time":["2023-02-25","2023-02-26","2023-02-27","2023-02-28","2023-03-01"],
     "weathercode":[3,51,53,53,3],
     "temperature_2m_max":[15.6,15.1,9.5,13.8,12.3],
     "temperature_2m_min":[10.5,7.9,7.5,7.4,10.1],
     "sunrise":["2023-02-25T07:12","2023-02-26T07:11","2023-02-27T07:09","2023-02-28T07:07","2023-03-01T07:06"],
     "sunset":["2023-02-25T18:15","2023-02-26T18:16","2023-02-27T18:17","2023-02-28T18:19","2023-03-01T18:20"]}}
-
-
-     * 
-     * */
-
-
+     *
+     **/
 }

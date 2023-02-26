@@ -46,11 +46,11 @@ public class EditSky : MonoBehaviour
     public void setSkyByWeatherCode(int code)
     {
 
-        Debug.Log("Method setSkyByWeatherCode, code: " + code);
+       // Debug.Log("Method setSkyByWeatherCode, code: " + code);
 
         string iconName = displayWeather.getIconNameByCode(code);
 
-        Debug.Log("Method setSkyByWeatherCode, iconName: " + iconName);
+       // Debug.Log("Method setSkyByWeatherCode, iconName: " + iconName);
 
         switch (iconName)
         {

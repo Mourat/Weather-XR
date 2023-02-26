@@ -19,9 +19,10 @@ public class CitiesListController : MonoBehaviour
         citiesInfos.transform.localScale = new Vector3(1, 1, 1);
     }
 
-    // When cities list loaded display city selector
+   
     private void Update()
     {
+        // When cities list loaded display city selector
         if (apiManager.hasCitiesData)
         {
             citiesForm.transform.localScale = new Vector3(1,1,1);
@@ -49,7 +50,7 @@ public class CitiesListController : MonoBehaviour
             buttons[i].GetComponent<CitiesButton>().city = data.results[i];
         }
 
-   
+        // To prevent loop display
         apiManager.hasCitiesData = false;
 
     }
