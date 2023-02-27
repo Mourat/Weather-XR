@@ -24,6 +24,7 @@ namespace Scripts_UI
 
         public void FillDropdown(List<string> citiesList)
         {
+            // _dropdown.options.Clear();
             _dropdown.options.Clear();
             foreach (string city in citiesList)
             {
